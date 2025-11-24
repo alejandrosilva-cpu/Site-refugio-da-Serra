@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refúgio da Serra - Viagens Sustentáveis</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #f0f8f0, #e8f5e8); /* Gradiente verde suave */
+        }
+
+        header {
+            background-color: #66bb6a;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e8f5e8;
+        }
+
+        /* Seção Hero */
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x500/66bb6a/ffffff?text=Explore+a+Natureza');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        .hero .logo {
+            max-width: 500px; 
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+        }
+
+    
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #66bb6a;
+            font-size: 2.5em;
+        }
+
+    
+        .destinos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .destino {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .destino:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .destino img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destino-content {
+            padding: 20px;
+        }
+
+        .destino h3 {
+            color: #66bb6a;
+            margin-bottom: 10px;
+        }
+
+        .destino p {
+            margin-bottom: 15px;
+        }
+
+        .destino a {
+            display: inline-block;
+            background-color: #66bb6a;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .destino a:hover {
+            background-color: #4caf50;
+        }
+
+    
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Blog */
+        .blog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .post {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .post img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 15px;
+        }
+
+        .post h4 {
+            color: #66bb6a;
+            margin-bottom: 10px;
+        }
+
+        .contato {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contato h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input, form textarea {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        form button {
+            background-color: #66bb6a;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #4caf50;
+        }
+
+        /* Botão Voltar ao Topo */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #66bb6a;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s;
+        }
+
+        #back-to-top:hover {
+            background-color: #4caf50;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #66bb6a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+    
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 10px;
+            }
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero .logo {
+                max-width: 150px; /* Logo menor em mobile */
+            }
+            .destinos {
+                flex-direction: column;
+                align-items: center;
+            }
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            .blog {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Refúgio da Serra</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h2>Viaje Sustentável</h2>
+            <p>Descubra destinos ecológicos, trilhas verdes e experiências únicas que respeitam a natureza.</p>
+            <img src="772a3ae0-3cdd-4da5-b6a5-a61bc44b90ec-removebg-preview.png" alt="Logo Refúgio da Serra" class="logo">
+        </div>
+    </section>
+
+    <section id="destinos" class="section">
+        <h2>Destinos Populares</h2>
+        <div class="destinos">
+            <div class="destino">
+                <img src="igreja-dos-reis-magos-nova-almeida-serra-1.webp" alt="Igreja Reis Magos">
+                <div class="destino-content">
+                    <h3>Igreja Reis Magos</h3>
+                    <p>Faça um tour na igreja Reis Magos.</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="destino">
+                <img src="mestre-alvaro-serra.webp" alt="Montanhas Verdes">
+                <div class="destino-content">
+                    <h3>Montanhas Verdes</h3>
+                    <p>Caminhadas e vistas panorâmicas em parques nacionais.</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="destino">
+                <img src="maxresdefault (1).jpg" alt="Praias Ecológicas">
+                <div class="destino-content">
+                    <h3>Praia de manguinhos</h3>
+                    <p>Relaxe em praias preservadas com atividades de mergulho sustentável.</p>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="section">
+        <h2>Galeria de Fotos</h2>
+        <div class="galeria">
+            <img src="igreja-dos-reis-magos-nova-almeida-serra-1.webp" alt="Igreja Reis Magos">
+            <img src="mestre-alvaro-serra.webp" alt="Mestre Álvaro">
+            <img src="maxresdefault (1).jpg" alt="Praia Ecológica">
+            <img src="jardim-botanico-da-serra-sera-inaugurado-no-proximo-sabado-13-a-noite-2906085-article.webp" alt="Outro Destino">
+        </div>
+    </section>
+
+
+    <section id="contato" class="section">
+        <div class="contato">
+            <h2>Entre em Contato</h2>
+            <form>
+                <input type="text" placeholder="Nome" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensagem" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Refúgio da Serra. Viagens sustentáveis para todos.</p>
+    </footer>
+
+    <button id="back-to-top">↑</button>
+
+    <script>
+        // Rolagem suave para links de navegação
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Mostrar/ocultar botão "Voltar ao Topo"
+        window.addEventListener('scroll', () => {
+            const button = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        });
+
+        // Função para voltar ao topo
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
